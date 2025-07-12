@@ -3,7 +3,7 @@ import axiosClient from '../utils/axiosInstance';
 
 export const useAuthStore = create((set) => ({
   user: null,
-  loading: false,
+  loading: true,
   error: null,
 
   login: async (data) => {
@@ -46,7 +46,6 @@ export const useAuthStore = create((set) => ({
 
   fetchUserProfile: async () => {
     try {
-      set({ loading: true });
       console.log("heerererere")
       const res = await axiosClient.get('/auth/me');
       if(res.status == 200){

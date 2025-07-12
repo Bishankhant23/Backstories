@@ -22,7 +22,7 @@ export const privateRoutesArray = [
 
 
 function PrivateRoutes() {
-  const { user } = useAuthStore();
+  const user = useAuthStore(state => state.user);
   const loading = useAuthStore((state) => state.loading);
 
   const location = useLocation()
@@ -31,7 +31,6 @@ function PrivateRoutes() {
     return <LoadingScreen/>
   }else{
     return user  ? <Outlet /> : <Navigate to="/login" state={{from : location.pathname}} replace />;
-
   }
 
 }
