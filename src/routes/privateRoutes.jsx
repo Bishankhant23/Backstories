@@ -27,7 +27,7 @@ function PrivateRoutes() {
 
   const location = useLocation()
 
-  if (true) {
+  if (loading) {
     return <LoadingScreen/>
   }else{
     return user  ? <Outlet /> : <Navigate to="/login" state={{from : location.pathname}} replace />;
