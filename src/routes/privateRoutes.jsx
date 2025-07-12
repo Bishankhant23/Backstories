@@ -5,6 +5,8 @@ import EpisodeDetails from '../pages/Episode-details';
 import EpisodesList from '../pages/episodes-list';
 import AddEpisode from '../pages/AddEpisode';
 import AddSeason from '../pages/AddSeason';
+import LoadingScreen from '../components/LoadingScreen';
+
 
 export const privateRoutesArray = [
   {path : "/profile/:userId?" , Component : MyProfile},
@@ -20,15 +22,13 @@ export const privateRoutesArray = [
 
 
 function PrivateRoutes() {
-  const { user, loading } = useAuthStore();
+  const { user } = useAuthStore();
+  const loading = useAuthStore((state) => state.loading);
+
   const location = useLocation()
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <span className="text-lg">Loading...</span>
-      </div>
-    );
+  if (true) {
+    return <LoadingScreen/>
   }else{
     return user  ? <Outlet /> : <Navigate to="/login" state={{from : location.pathname}} replace />;
 

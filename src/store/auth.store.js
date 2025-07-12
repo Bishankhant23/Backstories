@@ -45,8 +45,9 @@ export const useAuthStore = create((set) => ({
   setUser: (user) => set({ user }),
 
   fetchUserProfile: async () => {
-    set({ loading: true });
     try {
+      set({ loading: true });
+      console.log("heerererere")
       const res = await axiosClient.get('/auth/me');
       if(res.status == 200){
         set({ user: res.data.data, loading: false });
