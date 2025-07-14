@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axiosClient from '../utils/axiosInstance';
 import showToast from '../utils/toast';
+import Quill from '../components/Quill';
 
 const AddSeason = () => {
   const [form, setForm] = useState({

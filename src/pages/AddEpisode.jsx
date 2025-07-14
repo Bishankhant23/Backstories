@@ -73,8 +73,8 @@ const AddEpisode = () => {
     formData.append("type", form.type);
 
     form.cast.forEach((id) => formData.append("cast[]", id));
-    form.favoriteCharacters.forEach((id) =>
-      formData.append("favoriteCharacters[]", id)
+    form.favoriteCharacters.forEach((user) =>{
+      formData.append("favoriteCharacters[]", user?._id)}
     );
     photos.forEach((photo) => formData.append("photos", photo));
 

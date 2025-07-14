@@ -12,9 +12,16 @@ function ProfileSeasonList({ seasons = [], wasPrivate = false,onEditSeason=()=>{
     );
   }
 
+  const AddBtn = () => {
+    return <div className='text-end'>
+        <button onClick={() => navigate("/season/add")} className='bg-blue-600 px-2 ms-auto py-1 rounded-md text-white hover:opacity-90 cursor-pointer'>Add</button>
+      </div> 
+  }
+
   if (!seasons.length) {
     return (
       <div className="text-center mt-10 text-gray-500 text-lg">
+        <AddBtn/>
         No seasons to show yet.
       </div>
     );
@@ -22,9 +29,7 @@ function ProfileSeasonList({ seasons = [], wasPrivate = false,onEditSeason=()=>{
 
   return (
     <div>
-      <div className='text-end'>
-        <button onClick={() => navigate("/season/add")} className='bg-blue-600 px-2 ms-auto py-1 rounded-md text-white hover:opacity-90 cursor-pointer'>Add</button>
-      </div> 
+      <AddBtn />
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {seasons.map((season) => (
           <SeasonCard
